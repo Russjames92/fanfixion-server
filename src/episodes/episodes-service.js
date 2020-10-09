@@ -27,6 +27,28 @@ const EpisodesService = {
             .first()
     },
 
+    insertEpisode(db, newEpisode) {
+        return db
+        .insert(newEpisode)
+        .into('fanfixion_episodes')
+        .returning('*')
+        .then(([episode]) => episode)
+        .then(episode =>
+            EpisodesService.getById(db, episode.id))
+    },
+
+    deleteEpisode(db, id) {
+        return db('fanfixion_episodes')
+        .where({ id })
+        .delete()
+    },
+
+    updateEpisode(db, id, newEpisodeFields) {
+        return db('fanfixion_episodes')
+        .where({ id })
+        .update(newEpisodeFields)
+    },
+
     serializeEpisodes(episodes) {
         return episodes.map(this.serializeEpisode)
     },
