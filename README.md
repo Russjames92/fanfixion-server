@@ -19,3 +19,4 @@ To GET, PATCH, or DELETE a Specific Episode
 - Javascript
 
 [fanFIXion Client Repo](https://github.com/Russjames92/fanfixion-client)
+[fanFIXion Live App](https://fanfixion-client.vercel.app/)

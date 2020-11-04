@@ -18,6 +18,10 @@ app.use(morgan(morganOption))
 app.use(helmet())
 app.use(cors())
 
+app.get('/', (_req, res) => {
+    res.send('App Test is working')
+});
+
 app.use('/api/episodes', episodesRouter)
 app.use('/api/auth', authRouter)
 
