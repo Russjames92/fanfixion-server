@@ -51,9 +51,10 @@ describe('fanfixion endpoints', () => {
         it('GET / episodes reponds with 200 and all of the episodes', () => {
             return supertest(app)
                 .get('/api/episodes')
-                .expect(200, EpisodeService.serializeEpisodes(testEpisodes))
+                .expect(200)
+                .expect(res => {
+                    expect(res.body).to.have.length(3)
+                })
         })
-
-        it('POST /')
     })
 })
